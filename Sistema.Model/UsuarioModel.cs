@@ -10,5 +10,14 @@ namespace Sistema.Model
 {
     public class UsuarioModel
     {
+        public static int Inserir(UsuarioEnt objTabela)
+        {
+            return new UsuarioControl().Inserir(objTabela);
+        }
+
+        public List<UsuarioEnt> lista()
+        {
+            return new UsuarioControl().lista();
+        }
     }
 }

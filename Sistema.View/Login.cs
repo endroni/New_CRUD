@@ -18,5 +18,11 @@ namespace Sistema.View
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            frmCadUsuario form = new View.frmCadUsuario();
+            form.Show();
+        }
     }
 }

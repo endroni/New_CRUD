@@ -38,8 +38,12 @@
             this.txtSalvar = new System.Windows.Forms.Button();
             this.txtExcluir = new System.Windows.Forms.Button();
             this.txtEditar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.grid = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -101,6 +105,7 @@
             this.txtNovo.TabIndex = 6;
             this.txtNovo.Text = "Novo";
             this.txtNovo.UseVisualStyleBackColor = true;
+            this.txtNovo.Click += new System.EventHandler(this.txtNovo_Click);
             // 
             // txtSalvar
             // 
@@ -110,6 +115,7 @@
             this.txtSalvar.TabIndex = 7;
             this.txtSalvar.Text = "Salvar";
             this.txtSalvar.UseVisualStyleBackColor = true;
+            this.txtSalvar.Click += new System.EventHandler(this.txtSalvar_Click);
             // 
             // txtExcluir
             // 
@@ -119,6 +125,7 @@
             this.txtExcluir.TabIndex = 8;
             this.txtExcluir.Text = "Excluir";
             this.txtExcluir.UseVisualStyleBackColor = true;
+            this.txtExcluir.Click += new System.EventHandler(this.txtExcluir_Click);
             // 
             // txtEditar
             // 
@@ -128,24 +135,60 @@
             this.txtEditar.TabIndex = 9;
             this.txtEditar.Text = "Editar";
             this.txtEditar.UseVisualStyleBackColor = true;
+            this.txtEditar.Click += new System.EventHandler(this.txtEditar_Click);
             // 
-            // dataGridView1
+            // grid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 141);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(401, 101);
-            this.dataGridView1.TabIndex = 10;
+            this.grid.AllowUserToAddRows = false;
+            this.grid.AllowUserToDeleteRows = false;
+            this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.Nome,
+            this.Usuario,
+            this.Senha});
+            this.grid.Location = new System.Drawing.Point(30, 141);
+            this.grid.Name = "grid";
+            this.grid.ReadOnly = true;
+            this.grid.Size = new System.Drawing.Size(401, 101);
+            this.grid.TabIndex = 10;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Código";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome do Usuário";
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 120;
+            // 
+            // Usuario
+            // 
+            this.Usuario.DataPropertyName = "Usuario";
+            this.Usuario.HeaderText = "Usuário";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            // 
+            // Senha
+            // 
+            this.Senha.DataPropertyName = "Senha";
+            this.Senha.HeaderText = "Senha";
+            this.Senha.Name = "Senha";
+            this.Senha.ReadOnly = true;
             // 
             // frmCadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 245);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grid);
             this.Controls.Add(this.txtEditar);
             this.Controls.Add(this.txtExcluir);
             this.Controls.Add(this.txtSalvar);
@@ -158,7 +201,8 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCadUsuario";
             this.Text = "frmCadUsuario";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmCadUsuario_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,6 +220,10 @@
         private System.Windows.Forms.Button txtSalvar;
         private System.Windows.Forms.Button txtExcluir;
         private System.Windows.Forms.Button txtEditar;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView grid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Senha;
     }
 }
