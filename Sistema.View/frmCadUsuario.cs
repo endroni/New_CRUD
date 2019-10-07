@@ -14,6 +14,8 @@ namespace Sistema.View
 {
     public partial class frmCadUsuario : Form
     {
+        public Form telaprincipal;
+
         UsuarioEnt objTabela = new UsuarioEnt();
         public frmCadUsuario()
         {
@@ -35,6 +37,7 @@ namespace Sistema.View
                 case "Novo":
                     HabilitarCampos();
                     LimparCampos();
+                    ListarGrid();
                     break;
 
                 case "Salvar":
@@ -79,6 +82,13 @@ namespace Sistema.View
             txtSenha.Enabled = true;
         }
 
+        private void DesabilitarCampos()
+        {
+            txtNome.Enabled = false;
+            txtUsuario.Enabled = false;
+            txtSenha.Enabled = false;
+        }
+
         private void LimparCampos()
         {
             txtNome.Text = "";
@@ -90,6 +100,9 @@ namespace Sistema.View
         {
             opc = "Salvar";
             iniciarOpc();
+            ListarGrid();
+            LimparCampos();
+            DesabilitarCampos();
         }
 
         private void txtExcluir_Click(object sender, EventArgs e)

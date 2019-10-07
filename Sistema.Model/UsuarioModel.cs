@@ -19,5 +19,10 @@ namespace Sistema.Model
         {
             return new UsuarioControl().lista();
         }
+
+        public UsuarioEnt Login(UsuarioEnt obj)
+        {
+            return new UsuarioControl().Login(obj);
+        }
     }
 }
