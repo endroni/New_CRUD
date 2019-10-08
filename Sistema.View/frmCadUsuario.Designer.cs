@@ -43,13 +43,15 @@
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Senha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 33);
+            this.label1.Location = new System.Drawing.Point(27, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
@@ -58,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 69);
+            this.label2.Location = new System.Drawing.Point(27, 77);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 1;
@@ -76,7 +78,7 @@
             // txtNome
             // 
             this.txtNome.Enabled = false;
-            this.txtNome.Location = new System.Drawing.Point(81, 33);
+            this.txtNome.Location = new System.Drawing.Point(81, 43);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(231, 20);
             this.txtNome.TabIndex = 3;
@@ -84,7 +86,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Enabled = false;
-            this.txtUsuario.Location = new System.Drawing.Point(81, 66);
+            this.txtUsuario.Location = new System.Drawing.Point(81, 74);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(231, 20);
             this.txtUsuario.TabIndex = 4;
@@ -147,11 +149,13 @@
             this.Nome,
             this.Usuario,
             this.Senha});
-            this.grid.Location = new System.Drawing.Point(30, 141);
+            this.grid.Location = new System.Drawing.Point(12, 141);
             this.grid.Name = "grid";
             this.grid.ReadOnly = true;
-            this.grid.Size = new System.Drawing.Size(401, 101);
+            this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grid.Size = new System.Drawing.Size(419, 179);
             this.grid.TabIndex = 10;
+            this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
             // id
             // 
@@ -183,11 +187,30 @@
             this.Senha.Name = "Senha";
             this.Senha.ReadOnly = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(27, 14);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Código:";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(81, 14);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(79, 20);
+            this.txtCodigo.TabIndex = 12;
+            // 
             // frmCadUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 245);
+            this.ClientSize = new System.Drawing.Size(449, 332);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.txtEditar);
             this.Controls.Add(this.txtExcluir);
@@ -200,6 +223,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmCadUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCadUsuario";
             this.Load += new System.EventHandler(this.frmCadUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
@@ -225,5 +249,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Senha;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

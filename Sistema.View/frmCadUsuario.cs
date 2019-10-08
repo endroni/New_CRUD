@@ -67,9 +67,54 @@ namespace Sistema.View
                     break;
 
                 case "Excluir":
+                    try
+                    {                        
+                        objTabela.Id = Convert.ToInt32(txtCodigo.Text);
+
+                        int x = UsuarioModel.Excluir(objTabela);
+
+                        if (x > 0)
+                        {
+                            MessageBox.Show(String.Format("Usuário {0} excluído com sucesso", txtNome.Text));
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sado não excluído");
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro ao excluír: " + ex.Message);
+                        throw;
+                    }
                     break;
 
                 case "Editar":
+                    try
+                    {
+                        objTabela.Id = Convert.ToInt32(txtCodigo.Text);
+                        objTabela.Nome = txtNome.Text;
+                        objTabela.Usuario = txtUsuario.Text;
+                        objTabela.Senha = txtSenha.Text;
+
+                        int x = UsuarioModel.Editar(objTabela);
+
+                        if (x > 0)
+                        {
+                            MessageBox.Show(String.Format("Usuário {0} atualizado com sucesso", txtNome.Text));
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dado não atualizado!");
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ocorreu um erro ao Editar. Error " + ex.Message);
+                        //throw;
+                    }
                     break;
                 
             }
@@ -94,6 +139,7 @@ namespace Sistema.View
             txtNome.Text = "";
             txtUsuario.Text = "";
             txtSenha.Text = "";
+            txtCodigo.Text = "";
         }
 
         private void txtSalvar_Click(object sender, EventArgs e)
@@ -109,12 +155,18 @@ namespace Sistema.View
         {
             opc = "Excluir";
             iniciarOpc();
+            ListarGrid();
+            DesabilitarCampos();
+            LimparCampos();
         }
 
         private void txtEditar_Click(object sender, EventArgs e)
         {
             opc = "Editar";
             iniciarOpc();
+            ListarGrid();
+            DesabilitarCampos();
+            LimparCampos();
         }
         
         private void ListarGrid()
@@ -138,6 +190,15 @@ namespace Sistema.View
         private void frmCadUsuario_Load(object sender, EventArgs e)
         {
             ListarGrid();
+        }
+
+        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCodigo.Text = grid.CurrentRow.Cells[0].Value.ToString();
+            txtNome.Text = grid.CurrentRow.Cells[1].Value.ToString();
+            txtUsuario.Text = grid.CurrentRow.Cells[2].Value.ToString();
+            txtSenha.Text = grid.CurrentRow.Cells[3].Value.ToString();
+            HabilitarCampos();
         }
     }
 }
